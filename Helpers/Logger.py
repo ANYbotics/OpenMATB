@@ -44,7 +44,7 @@ class Logger(QtWidgets.QWidget):
 
     def addLine(self, listToLog):
         fullList = [datetime.datetime.now().strftime(
-            "%H:%M:%S.%f"), self.smiStamp] + listToLog
+            "%H:%M:%S"), self.smiStamp] + listToLog
         self.smiStamp = ''
         stringLine = self.listToStringLine(fullList)
 
