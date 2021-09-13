@@ -31,7 +31,7 @@ class WTank(QtWidgets.QWidget):
     def setLabel(self, level=0):
         self.tankLevel = QtWidgets.QLabel(self)
         self.tankLevel.setGeometry(
-            QtCore.QRect(self.ulx, self.uly + self.tankHeight, self.tankWidth, 20))
+            QtCore.QRect(self.ulx, self.uly + self.tankHeight, self.tankWidth, 100))
         self.tankLevel.setAlignment(QtCore.Qt.AlignCenter)
 
     def setLetter(self, letter):
@@ -39,7 +39,7 @@ class WTank(QtWidgets.QWidget):
         self.tankLetter.setFont(self.letterFont)
         self.tankLetter.setText(letter)
         self.tankLetter.setGeometry(
-            QtCore.QRect(self.ulx - 30, self.uly, 30, 30))
+            QtCore.QRect(self.ulx - 100, self.uly, 100, 100))
         self.tankLetter.setAlignment(
             QtCore.Qt.AlignCenter | QtCore.Qt.AlignCenter)
 
