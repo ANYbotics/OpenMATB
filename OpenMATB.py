@@ -113,10 +113,10 @@ class Main(QtWidgets.QMainWindow):
         # Compute screen dimensions
         # Screen index can be changed just below
 
-        screen_idx = 0  # Here, you can change the screen index
+        screen_idx = 1  # Here, you can change the screen index
         screen = QtGui.QGuiApplication.screens()[screen_idx]
-        self.screen_width = screen.geometry().width()
-        self.screen_height = screen.geometry().height()
+        self.screen_width = 0.95*screen.geometry().width()
+        self.screen_height = 0.95*screen.geometry().height()
 
         # screen_widths = [QtWidgets.QApplication.desktop().screenGeometry(i).width() for i in range(0, QtWidgets.QApplication.desktop().screenCount())]
         #
@@ -888,16 +888,16 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
 
     loadConfig()
+    #scenario_FullPath, none = QtWidgets.QFileDialog.getOpenFileName(
+    #    None, VERSIONTITLE + ' - ' + _('Select a scenario'), SCENARIOS_PATH, "(*.txt)")
 
-    scenario_FullPath, none = QtWidgets.QFileDialog.getOpenFileName(
-        None, VERSIONTITLE + ' - ' + _('Select a scenario'), SCENARIOS_PATH, "(*.txt)")
-
+    scenario_FullPath = '/home/jon/nasa_tlx/OpenMATB/Scenarios/plant.txt'
     if os.path.exists(scenario_FullPath):
         pygame.init()
         window = Main(scenario_FullPath)
         window.setWindowTitle(VERSIONTITLE)
 
-        window.showFullScreen()
+        window.show()
         app.installEventFilter(window)
         window.runExperiment()
 
