@@ -888,10 +888,9 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
 
     loadConfig()
-    #scenario_FullPath, none = QtWidgets.QFileDialog.getOpenFileName(
-    #    None, VERSIONTITLE + ' - ' + _('Select a scenario'), SCENARIOS_PATH, "(*.txt)")
+    scenario_FullPath, none = QtWidgets.QFileDialog.getOpenFileName(
+        None, 'Select a scenario', SCENARIOS_PATH, "Scenario (*.txt)")
 
-    scenario_FullPath = '/home/jon/nasa_tlx/OpenMATB/Scenarios/plant.txt'
     if os.path.exists(scenario_FullPath):
         pygame.init()
         window = Main(scenario_FullPath)
