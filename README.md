@@ -1,3 +1,14 @@
+<h1>Modifications:</h1>
+
+<ul>
+<li>Showing only resources management task in fullscreen</li>
+<li>Pause simulation with space bar</li>
+<li>Evaluation script to track performance over time (work in progress)</li>
+<li>Tricks: edit screen_idx in OpenMATB.py if you use a multiscreen setup</li>
+</ul>
+
+
+***
 
 <h1>OpenMATB: An open-source version of the Multi-Attribute Task Battery (MATB)</h1>
 

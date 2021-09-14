@@ -11,7 +11,7 @@ class Task(QtWidgets.QWidget):
 
         # RESMAN PARAMETERS ###
         self.parameters = {
-            'taskplacement': 'bottommid',
+            'taskplacement': 'fullscreen',
             'taskupdatetime': 2000,
             'title': 'Resources management',
             'heuristicsolver': False,
@@ -65,7 +65,7 @@ class Task(QtWidgets.QWidget):
         self.modeLabel.setGeometry(QtCore.QRect(self.width() * 0.42, self.height() * 0.40, self.width() * 0.20, 20))
         self.modeLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.modeLabel.setFont(self.modeFont)
-        self.refreshModeLabel()
+        #self.refreshModeLabel()
         self.update()
 
         # If there is any tank that has a target, log the tolerance value
@@ -284,8 +284,27 @@ class Task(QtWidgets.QWidget):
                                    'ON' if pumpValue['state'] == 1 else 'OFF'])
 
                 self.repaint()  # Refresh
+
+            if key_pressed == QtCore.Qt.Key_Space:
+                self.parent().onPause()
+                self.layout = QtWidgets.QVBoxLayout(self)
+                self.continue_button = QtWidgets.QPushButton(_('Continue'))
+                self.continue_button.setMaximumWidth(0.25 * self.width())
+                self.continue_button.clicked.connect(self.terminate)
+                hbox = QtWidgets.QHBoxLayout()
+                hbox.addWidget(self.continue_button)
+                vbox = QtWidgets.QVBoxLayout()
+                vbox.addStretch(0)
+                vbox.addLayout(hbox)
+                self.layout.addLayout(vbox)
+                self.show()
             else:
                 return
+
+    def terminate(self):
+        # Force to reparent and destroy the layout
+        QtWidgets.QWidget().setLayout(self.layout)
+        self.parent().onResume()
 
     def refreshModeLabel(self):
         if self.parameters['heuristicsolver'] is True:

@@ -1,0 +1,16 @@
+# Durations are expressed in milliseconds
+# Timestamps are stated in the following format H:MM:SS
+
+# Retrieve participant information:
+0:00:00;participantinfo;start
+
+# Resources management
+0:00:00;resman;start
+0:00:15;resman;pump-3-state;-1
+0:00:25;resman;pump-3-state;0
+0:00:30;resman;pump-7-state;-1
+0:00:40;resman;pump-7-state;0
+0:01:00;resman;stop
+
+# Exit
+0:01:05;end
